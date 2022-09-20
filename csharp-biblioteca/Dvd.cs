@@ -6,7 +6,7 @@ namespace csharp_biblioteca
     {
         private int Duration { get; set; }
 
-        public Dvd(string prefixCode,string title, int year, int sector, bool isLoaned, int rack, string author, int duration) : base(prefixCode,title, year, sector, rack, author)
+        public Dvd(string prefixCode,string title, int year, string sector, int rack, string author, int duration) : base(prefixCode,title, year, sector, rack, author)
         {
             Duration = duration;
         }
@@ -16,6 +16,11 @@ namespace csharp_biblioteca
         {
             
             return base.randomCode(prefix);
+        }
+
+        public override void printRecord()
+        {
+            Console.WriteLine($"| Codice: {Code} | Titolo: {Title.PadRight(30 - Title.Length, ' ')} | Autore: {Author.PadRight(30 - Author.Length, ' ')} | Anno: {Year} | Durata(min): {Duration}| Posizione: {Sector.PadRight(15 - Sector.Length, ' ')} - {Rack} |");
         }
 
 

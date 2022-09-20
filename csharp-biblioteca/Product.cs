@@ -17,7 +17,7 @@ namespace csharp_biblioteca
         //anno,
         public int Year { get; set; }
         //settore(storia, matematica, economia, …),
-        public int Sector { get; set; }
+        public string Sector { get; set; }
         //stato(In Prestito, Disponibile),
         public bool IsLoaned { get; set; }
         //uno scaffale in cui è posizionato,
@@ -25,7 +25,7 @@ namespace csharp_biblioteca
         //un autore (Nome, Cognome).
         public string Author { get; set; }
     
-        public Product(string title, int year, int sector, int rack, string author)
+        public Product(string title, int year, string sector, int rack, string author)
         {
             Code = randomCode(prefixCode);
             Title = title;
@@ -36,7 +36,7 @@ namespace csharp_biblioteca
             Author = author;
         }
 
-        public Product(string prefixCode,string title, int year, int sector, int rack, string author)
+        public Product(string prefixCode,string title, int year, string sector, int rack, string author)
         {
             Code = randomCode(prefixCode);
             Title = title;
@@ -53,6 +53,10 @@ namespace csharp_biblioteca
             return prefix + Convert.ToString(rnd.Next(1000)).PadLeft(13 - prefix.Length, '0');
         }
 
+        public virtual void printRecord()
+        {
+            Console.WriteLine($"| Codice: {Code} | Titolo: {Title.PadRight(30 - Title.Length, ' ')} | Autore: {Author.PadRight(30 - Author.Length, ' ')} | Anno: {Year} | Posizione: {Sector.PadRight(15 - Sector.Length, ' ')} - {Rack} |");
+        }
 
 
     }
