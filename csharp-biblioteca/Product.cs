@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,10 @@ namespace csharp_biblioteca
         public int Rack { get; set; }
         //un autore (Nome, Cognome).
         public string Author { get; set; }
-    
+        public string Borrowed_from { get; set; }
+        public string Borrowev_at { get; set; }
+
+
         public Product(string title, int year, string sector, int rack, string author)
         {
             Code = randomCode(prefixCode);
@@ -34,6 +38,10 @@ namespace csharp_biblioteca
             IsLoaned = false;
             Rack = rack;
             Author = author;
+            Borrowed_from = null; 
+            Borrowev_at = null;
+
+
         }
 
         public Product(string prefixCode,string title, int year, string sector, int rack, string author)
@@ -45,6 +53,8 @@ namespace csharp_biblioteca
             IsLoaned = false;
             Rack = rack;
             Author = author;
+            Borrowed_from = null;
+            Borrowev_at = null;
         }
 
         protected virtual string randomCode(string prefix)

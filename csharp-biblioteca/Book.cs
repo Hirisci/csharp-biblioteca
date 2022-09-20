@@ -18,7 +18,7 @@
 
         public override string printRecord()
         {
-            return $"| Codice: {Code} | Titolo: {Title.PadLeft(30 - Title.Length, ' ')} | Autore: {Author.PadLeft(30 - Author.Length, ' ')} | Anno: {Year} | Pagine: {Convert.ToString(NumPage).PadLeft(5,' ')}| Posizione: {Sector.PadLeft(15 - Sector.Length, ' ')} - {Rack} |";
+            return $"| Codice: {Code} | Titolo: {Title.PadLeft(40)} | Autore: {Author.PadLeft(30)} | Anno: {Year} | Pagine: {Convert.ToString(NumPage).PadLeft(6)}| Posizione: {Sector.PadLeft(15)} - {Convert.ToString(Rack).PadLeft(2)} |";
         }
     }
 
