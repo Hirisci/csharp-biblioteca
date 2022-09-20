@@ -16,9 +16,9 @@
             return base.randomCode(prefix);
         }
 
-        public override void printRecord()
+        public override string printRecord()
         {
-            Console.WriteLine($"| Codice: {Code} | Titolo: {Title.PadRight(30 - Title.Length, ' ')} | Autore: {Author.PadRight(30 - Author.Length, ' ')} | Anno: {Year} | Pagine: {Convert.ToString(NumPage).PadRight(5,' ')}| Posizione: {Sector.PadRight(15 - Sector.Length, ' ')} - {Rack} |");
+            return $"| Codice: {Code} | Titolo: {Title.PadLeft(30 - Title.Length, ' ')} | Autore: {Author.PadLeft(30 - Author.Length, ' ')} | Anno: {Year} | Pagine: {Convert.ToString(NumPage).PadLeft(5,' ')}| Posizione: {Sector.PadLeft(15 - Sector.Length, ' ')} - {Rack} |";
         }
     }
 

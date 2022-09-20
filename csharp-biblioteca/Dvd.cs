@@ -18,9 +18,11 @@ namespace csharp_biblioteca
             return base.randomCode(prefix);
         }
 
-        public override void printRecord()
+        public override string printRecord()
         {
-            Console.WriteLine($"| Codice: {Code} | Titolo: {Title.PadRight(30 - Title.Length, ' ')} | Autore: {Author.PadRight(30 - Author.Length, ' ')} | Anno: {Year} | Durata(min): {Duration}| Posizione: {Sector.PadRight(15 - Sector.Length, ' ')} - {Rack} |");
+            return $"| Codice: {Code} | Titolo: {Title.PadLeft(30 - Title.Length, ' ')} | Autore: {Author.PadLeft(30 - Author.Length, ' ')} | Anno: {Year} | Durata(min): {Duration}| Posizione: {Sector.PadLeft(15 - Sector.Length, ' ')} - {Rack} |";
+
+
         }
 
 

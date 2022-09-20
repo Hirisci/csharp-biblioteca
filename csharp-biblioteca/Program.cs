@@ -26,6 +26,9 @@ Console.WriteLine("Hello, World!");
 Product p = new Product("", "test", 1990, "test", 12, "test Test");
 Book book = new Book("97888", "test", 1990, "Fantascenza", 12, "test Test", 100);
 Dvd dvd = new Dvd("55588", "test", 1990, "Storico", 12, "test Test", 100);
-p.printRecord();
-book.printRecord();
-dvd.printRecord();
+Console.WriteLine(p.printRecord());
+Console.WriteLine(book.printRecord());
+Console.WriteLine(dvd.printRecord());
+
+Person person = new Person("Alan", "Bruno", "test@libero.com", "1234", "333 4511265");
+Console.WriteLine(person.info());

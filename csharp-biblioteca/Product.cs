@@ -53,9 +53,9 @@ namespace csharp_biblioteca
             return prefix + Convert.ToString(rnd.Next(1000)).PadLeft(13 - prefix.Length, '0');
         }
 
-        public virtual void printRecord()
+        public virtual string printRecord()
         {
-            Console.WriteLine($"| Codice: {Code} | Titolo: {Title.PadRight(30 - Title.Length, ' ')} | Autore: {Author.PadRight(30 - Author.Length, ' ')} | Anno: {Year} | Posizione: {Sector.PadRight(15 - Sector.Length, ' ')} - {Rack} |");
+            return $"| Codice: {Code} | Titolo: {Title.PadLeft(30 - Title.Length, ' ')} | Autore: {Author.PadLeft(30 - Author.Length, ' ')} | Anno: {Year} | Posizione: {Sector.PadLeft(15 - Sector.Length, ' ')} - {Rack} |";
         }
 
 
