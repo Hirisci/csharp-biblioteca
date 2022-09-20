@@ -39,14 +39,60 @@ List<Dvd> listDvd = new List<Dvd> { dvd, dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd
 
 Library lib = new Library(listBook, listDvd);
 
-
+//Console.WriteLine("2) Consulta i libri/Dvd in giacenza");
+//Console.WriteLine("3) Ricerca libro/Dvd per titolo");
+//Console.WriteLine("4) Ricerca libro/Dvd per Codice");
+//Console.WriteLine("5) Consulta i libro/Dvd in prestito");
+//Console.WriteLine("6) Prendi in prestito un libro/Dvd (codice/Ibs)");
 
 
 bool status = true;
 do
 {
     Console.WriteLine("digita il numero della tua azione");
-    Console.WriteLine("1) Registrati");
-    Console.WriteLine("2) Consulta i libri in giacenza");
+    Console.WriteLine("1) Consulta il Magazzino della libreria");
+    Console.WriteLine("2) Registrati");
+    Console.WriteLine("3) Accedi");
+    Console.WriteLine("4) Exit");
+    Console.Write("digita il numero del azione: ");
+    int scelta = Convert.ToInt32(Console.ReadLine());
+
+    switch (scelta)
+    {
+        case (1):
+            Console.WriteLine();
+            lib.showStorage();
+            Console.WriteLine();
+            break;
+        case (2):
+            Console.WriteLine();
+            Console.WriteLine("Dati Registrazione");
+            Console.Write("Inserisci nome e cognome: ");
+            string name = Console.ReadLine();
+            Console.Write("Inserisci password: ");
+            string password = Console.ReadLine();
+
+            Console.WriteLine();
+            break;
+        case (3):
+            Console.WriteLine();
+            Console.WriteLine("da implementare Accedi");
+            Console.WriteLine();
+            break;
+        case (4):
+            Console.WriteLine();
+            Console.WriteLine("Arrivederci");
+            Console.WriteLine();
+            status = !status;
+            break;
+        default:
+            Console.WriteLine();
+            Console.WriteLine("Scelta non valida");
+            Console.WriteLine();
+            break;
+    }
+        
+
+
 
 } while (status);
