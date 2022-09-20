@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Runtime.ConstrainedExecution;
 using System;
+using csharp_biblioteca;
 
 Console.WriteLine("Hello, World!");
 
@@ -16,7 +17,13 @@ Console.WriteLine("Hello, World!");
 
 
 // Prodotto
-    //libro
-    //dvd
+//libro
+//dvd
 // User
 // Libreria
+
+
+Product p = new Product("", "test", 1990, 0, false, 12, "test Test");
+Book book = new Book("97888", "test", 1990, 0, false, 12, "test Test", 100);
+Dvd dvd = new Dvd("55588", "test", 1990, 0, false, 12, "test Test", 100);
+Console.WriteLine("codice prodotto base: " + p.Code);Console.WriteLine("codice libro base: " + book.Code);Console.WriteLine("codice DvD base: " + dvd.Code);

@@ -10,23 +10,24 @@ namespace csharp_biblioteca
     internal class Product
     {
         // un codice identificativo di tipo stringa(ISBN per i libri, numero seriale per i DVD),
-        private string Code { get;} 
+        public string Code { get; set; }
+        private string prefixCode = "";
         //titolo,
-        private string Title { get; set; }
+        public string Title { get; set; }
         //anno,
-        private int Year { get; set; }
+        public int Year { get; set; }
         //settore(storia, matematica, economia, …),
-        private int Sector { get; set; }
+        public int Sector { get; set; }
         //stato(In Prestito, Disponibile),
-        private bool IsLoaned { get; set; }
+        public bool IsLoaned { get; set; }
         //uno scaffale in cui è posizionato,
-        private int Rack { get; set; }
+        public int Rack { get; set; }
         //un autore (Nome, Cognome).
-        private string Author { get; set; }
+        public string Author { get; set; }
     
         public Product(string title, int year, int sector, bool isLoaned, int rack, string author)
         {
-            Code = randomCode();
+            Code = randomCode(prefixCode);
             Title = title;
             Year = year;
             Sector = sector;
@@ -35,14 +36,25 @@ namespace csharp_biblioteca
             Author = author;
         }
 
-        protected virtual string randomCode()
+        public Product(string prefixCode,string title, int year, int sector, bool isLoaned, int rack, string author)
+        {
+            Code = randomCode(prefixCode);
+            Title = title;
+            Year = year;
+            Sector = sector;
+            IsLoaned = isLoaned;
+            Rack = rack;
+            Author = author;
+        }
+
+        protected virtual string randomCode(string prefix)
         {
             Random rnd = new Random();
-            return Convert.ToString(rnd.Next(1000)).PadLeft(13,'0');
+            return prefix + Convert.ToString(rnd.Next(1000)).PadLeft(13 - prefix.Length, '0');
         }
 
 
-    
+
     }
 
 
