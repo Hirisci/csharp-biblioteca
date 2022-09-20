@@ -27,13 +27,39 @@ namespace csharp_biblioteca
             }
         }
 
-        
+        public bool isRegistered(string name, string lastName, string pass)
+        {
+            var query = from Person user in users
+                        where user.fullName() == $"{name} {lastName}" && user.Password == pass
+                        select user;
+            if(query.Count() > 0)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        public Person takeUser(string name, string lastName, string pass)
+        {
+            var query = from Person user in users
+                        where user.fullName() == $"{name} {lastName}" && user.Password == pass
+                        select user;
+            if (query.Count() > 0)
+            {
+                return query.First();
+            }
+            return null;
+        }
 
 
-    
-    
-    
-    
+
+
+
+
+
+
     }
 
     

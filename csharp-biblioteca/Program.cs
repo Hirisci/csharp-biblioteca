@@ -2,6 +2,7 @@
 using System.Runtime.ConstrainedExecution;
 using System;
 using csharp_biblioteca;
+using System.Xml.Linq;
 
 //Gli utenti si possono registrare al sistema
 //Gli utenti registrati possono effettuare dei prestiti sui documenti che sono di vario tipo (libri, DVD)
@@ -35,9 +36,8 @@ Dvd dvd8 = new Dvd("55588", "test", 1990, "Storico", 12, "test Test", 100);
 Dvd dvd9 = new Dvd("55588", "test", 1990, "Storico", 12, "test Test", 100);
 List<Dvd> listDvd = new List<Dvd> { dvd, dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9 };
 
-
-
 Library lib = new Library(listBook, listDvd);
+lib.users.Add(new Person("test", "test", "test", "test@test.com", "321 3333456"));
 
 //Console.WriteLine("2) Consulta i libri/Dvd in giacenza");
 //Console.WriteLine("3) Ricerca libro/Dvd per titolo");
@@ -67,16 +67,38 @@ do
         case (2):
             Console.WriteLine();
             Console.WriteLine("Dati Registrazione");
-            Console.Write("Inserisci nome e cognome: ");
+            Console.Write("Inserisci nome: ");
             string name = Console.ReadLine();
+            Console.Write("Inserisci cognome: ");
+            string lastName = Console.ReadLine();
             Console.Write("Inserisci password: ");
             string password = Console.ReadLine();
-
+            Console.Write("Inserisci email: ");
+            string email = Console.ReadLine();
+            Console.Write("Inserisci number: ");
+            string number = Console.ReadLine();
+            lib.users.Add(new Person(name, lastName, password, email, number));
+            Console.WriteLine();
+            Console.WriteLine("UTENTE REGISTRATO CON SUCCESSO");
             Console.WriteLine();
             break;
         case (3):
             Console.WriteLine();
-            Console.WriteLine("da implementare Accedi");
+            Console.WriteLine("Inserisci Dati per Accesso");
+            Console.Write("Inserisci nome: ");
+            name = Console.ReadLine();
+            Console.Write("Inserisci cognome: ");
+            lastName = Console.ReadLine();
+            Console.Write("Inserisci password: ");
+            password = Console.ReadLine();
+            if (lib.takeUser(name, lastName, password) != null)
+            {
+                Console.WriteLine("ho l'utente");
+            }
+            else
+            {
+                Console.WriteLine("Dati di accesso errati");
+            }
             Console.WriteLine();
             break;
         case (4):
