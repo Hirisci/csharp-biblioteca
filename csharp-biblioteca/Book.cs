@@ -4,7 +4,7 @@
     {
         private int NumPage { get; set; }
 
-        public Book(string prefixCode, string title, int year, int sector, bool isLoaned, int rack, string author, int numPage) : base(prefixCode,title, year, sector, isLoaned, rack, author)
+        public Book(string prefixCode, string title, int year, int sector, bool isLoaned, int rack, string author, int numPage) : base(prefixCode,title, year, sector, rack, author)
         {
             
             NumPage = numPage;

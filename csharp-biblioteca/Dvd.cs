@@ -6,7 +6,7 @@ namespace csharp_biblioteca
     {
         private int Duration { get; set; }
 
-        public Dvd(string prefixCode,string title, int year, int sector, bool isLoaned, int rack, string author, int duration) : base(prefixCode,title, year, sector, isLoaned, rack, author)
+        public Dvd(string prefixCode,string title, int year, int sector, bool isLoaned, int rack, string author, int duration) : base(prefixCode,title, year, sector, rack, author)
         {
             Duration = duration;
         }

@@ -25,24 +25,24 @@ namespace csharp_biblioteca
         //un autore (Nome, Cognome).
         public string Author { get; set; }
     
-        public Product(string title, int year, int sector, bool isLoaned, int rack, string author)
+        public Product(string title, int year, int sector, int rack, string author)
         {
             Code = randomCode(prefixCode);
             Title = title;
             Year = year;
             Sector = sector;
-            IsLoaned = isLoaned;
+            IsLoaned = false;
             Rack = rack;
             Author = author;
         }
 
-        public Product(string prefixCode,string title, int year, int sector, bool isLoaned, int rack, string author)
+        public Product(string prefixCode,string title, int year, int sector, int rack, string author)
         {
             Code = randomCode(prefixCode);
             Title = title;
             Year = year;
             Sector = sector;
-            IsLoaned = isLoaned;
+            IsLoaned = false;
             Rack = rack;
             Author = author;
         }
